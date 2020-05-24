@@ -6,7 +6,7 @@
 
 ## macOS Settings
 
-    ~/.macos
+    source .macos
 
 ## Shell
 
