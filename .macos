@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password 
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Tweaks
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always" # show scrollbar always
+defaults write com.apple.finder ShowStatusBar -bool true # Show Finder statusbar
+sudo nvram SystemAudioVolume=%80 # Disable OS X startup sound
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
