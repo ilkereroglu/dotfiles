@@ -9,7 +9,8 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for f in .zshrc \
 	.Brewfile \
 	.github_username \
-	.gitignore_global; do
+	.gitignore_global \
+	.vimrc; do
 	if [ -f "$HOME/$f" ]; then rm "$HOME/$f"; fi
 	ln -sf "$SCRIPT_DIR/$f" "$HOME/$f"
 done
