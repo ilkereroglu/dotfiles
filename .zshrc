@@ -61,11 +61,11 @@ else
 fi
 
 # GPG integration: https://gist.github.com/bmhatfield/cc21ec0a3a2df963bffa3c1f884b676b
-# if [ -f "$HOME/.gnupg/gpg_profile" ] && command -v gpg-agent > /dev/null; then
-#  source "$HOME/.gnupg/gpg_profile"
-# else
-#  log "WARNING: skipping loading gpg-agent"
-# fi
+if [ -f "$HOME/.gnupg/gpg_profile" ] && command -v gpg-agent > /dev/null; then
+	source "$HOME/.gnupg/gpg_profile"
+ else
+	log "WARNING: skipping loading gpg-agent"
+fi
 
 # View colored man pages
 export LESS_TERMCAP_mb=$'\e[1;32m'
