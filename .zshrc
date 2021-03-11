@@ -19,6 +19,22 @@ export TERM=xterm-256color
 export EDITOR=vim
 # export LSCOLORS="exfxcxdxbxegedabagacad"
 
+# Homebrew install path customization
+	export HOMEBREW="$HOME/.homebrew"
+	if [ ! -d "$HOMEBREW" ]; then
+		# fallback
+		export HOMEBREW=/usr/local
+	fi
+
+	export HOMEBREW_NO_ANALYTICS=1
+	export HOMEBREW_NO_INSECURE_REDIRECT=1
+
+	PATH="$HOMEBREW/bin:$HOMEBREW/sbin:$PATH"
+
+	# Add zsh completion scripts installed via Homebrew
+	fpath=("$HOMEBREW/share/zsh-completions" $fpath)
+	fpath=("$HOMEBREW/share/zsh/site-functions" $fpath)
+
 # local install path customization
 export LOCAL="/usr/local/"
 
@@ -64,3 +80,7 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 LESSPIPE=`which src-hilite-lesspipe.sh`
 export LESSOPEN="| ${LESSPIPE} %s"
 export LESS=' -R -X -F '
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+alias nano='/usr/local/bin/nano'
