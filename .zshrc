@@ -64,3 +64,4 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 LESSPIPE=`which src-hilite-lesspipe.sh`
 export LESSOPEN="| ${LESSPIPE} %s"
 export LESS=' -R -X -F '
+[[ -s "/Users/ilker/.gvm/scripts/gvm" ]] && source "/Users/ilker/.gvm/scripts/gvm"
